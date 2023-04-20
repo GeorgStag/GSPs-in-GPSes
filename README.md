@@ -9,19 +9,18 @@ The Gaussian Stochastic Process modelling in based on Radial Basis function kern
 
 Ideally the user should work with the library as follows,
 ---
-**NOTE**
 import GPS_supervised_smoothing
 
-t = * list with previous times
-la = * list with previous latituded
-lon = * list with previous longitudes
-t_+ = * list with next time of interest
+t = * list with previous times \n
+la = * list with previous latituded \n
+lon = * list with previous longitudes \n
+t_+ = * list with next time of interest \n
 
 reshape_kernel(la, lon) 
 
-times = t.append(t_+) 
-times = reshape_time(initial_times = times)
-GSPpred( times[:-1], lon, la, times[-1] ) 
+times = t.append(t_+)  \n
+times = reshape_time(initial_times = times) \n
+GSPpred( times[:-1], lon, la, times[-1] )  \n
 ---
 
 Comments
