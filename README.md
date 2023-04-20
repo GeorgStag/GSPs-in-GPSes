@@ -7,7 +7,7 @@ The input should be previous GPS positions (Latitude-Longitude) in corresponding
 
 The Gaussian Stochastic Process modelling in based on Radial Basis function kernel plus White Noise, so the previous positions are filtered to drop likely noise and also predictions can happen for future momments under the assumption of smooth transitioning of GSP.
 
-Ideally the user should work with the library as follows,
+Ideally the functions should work as follows,
 ---
 import GPS_supervised_smoothing
 
