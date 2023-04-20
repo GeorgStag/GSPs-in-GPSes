@@ -20,7 +20,7 @@ reshape_kernel(la, lon)
 
 times = t.append(t_+)  \
 times = reshape_time(initial_times = times) \
-GSPpred( times[:-1], lon, la, times[-1] )  \
+GSPpred( times[:-1], lon, la, times[-1] )  
 ---
 
 Comments:
