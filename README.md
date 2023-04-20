@@ -20,7 +20,7 @@ GPS_supervised_smoothing.reshape_kernel(la, lon)
 
 times = t.append(t_+)  \
 times = GPS_supervised_smoothing.reshape_time(initial_times = times) \
-GPS_supervised_smoothing.GSPpred( times[:-1], lon, la, times[-1] )  
+GPS_supervised_smoothing.GSPpred( times\[:-1\], lon, la, times\[-1\] )  
 ---
 
 Comments:
