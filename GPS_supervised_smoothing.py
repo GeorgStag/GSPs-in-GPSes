@@ -66,8 +66,8 @@ def reshape_kernel(logitude_sample, latitude_sample):
     global gpr_lon, gpr_la
 
     meds = [np.median(logitude_sample), np.median(latitude_sample)]
-    logitude_sample = logitude_sample - meds[0]
-    latitude_sample = latitude_sample - meds[1]
+    logitude_sample = np.array(logitude_sample) - meds[0]
+    latitude_sample = np.array(latitude_sample) - meds[1]
 
     meds = [np.median(logitude_sample), np.median(latitude_sample)]
     maxs = [np.quantile(logitude_sample, 0.9), np.quantile(latitude_sample, 0.9)]
