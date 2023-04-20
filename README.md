@@ -26,4 +26,4 @@ GSPpred( times[:-1], lon, la, times[-1] )
 Comments:
 - You don't need to reshape_kernel often, once in the beginning would be ok
 - You don't need to include all the previous values in GSPpred, 5 at least is recommended, more than 20 would be ideal
-- Each time you use GSPpred, model is updated, so it keeps in account all previous inputs, even if not included
+- Each time you use GSPpred, model is updated, so it keeps account of all previous inputs, even if not included in current (times[:-1], lon, la)
