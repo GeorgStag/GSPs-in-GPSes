@@ -1,6 +1,8 @@
 # GSPs-in-GPSes
 GPS output enhancement with the use of Gaussian Stochastic Processes
 
+In kalman_filter.py, there is the classic approach of Kalman Filter. More about the Kalman approach can be found in the uploaded pdf.
+
 In GPS_supervised_smoothing.py, there are functions for improving the output of GPS devices, based on Supervised Learning modelling. 
 
 The input should be previous GPS positions (Latitude-Longitude) in corresponding times and the results are predictions of position for future close times. 
