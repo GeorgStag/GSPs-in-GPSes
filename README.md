@@ -16,12 +16,12 @@ import GPS_supervised_smoothing
 t =   [0,1,2]             # list with previous times 
 la =  [42.1,42.2,42.3]    # list with previous latitudes 
 lon = [-12.1,-12.2,-12.3] # list with previous longitudes 
-t_+ = 3                   # list with next time of interest 
+t_new = 3                 # list with next time of interest 
 
 GPS_supervised_smoothing.reshape_kernel(la, lon) 
 
-times = t.append(t_+)  \
-times = GPS_supervised_smoothing.reshape_time(initial_times = times) \
+times = t.append(t_new)  
+times = GPS_supervised_smoothing.reshape_time(initial_times = times) 
 GPS_supervised_smoothing.GSPpred( times[:-1], lon, la, times[-1] )  
 ```
 
