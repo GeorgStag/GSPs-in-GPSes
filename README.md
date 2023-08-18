@@ -10,21 +10,20 @@ The input should be previous GPS positions (Latitude-Longitude) in corresponding
 The Gaussian Stochastic Process modelling is based on Radial Basis function kernel plus White Noise, so the previous positions are filtered to drop likely noise and also predictions can happen for future momments under the assumption of smooth transitioning of GSP.
 
 Ideally the functions should work as follows,
----
+```python
 import GPS_supervised_smoothing
 
-t = * list with previous times \
-la = * list with previous latituded \
-lon = * list with previous longitudes \
-t_+ = * list with next time of interest 
+t =   [0,1,2]             # list with previous times 
+la =  [42.1,42.2,42.3]    # list with previous latitudes 
+lon = [-12.1,-12.2,-12.3] # list with previous longitudes 
+t_+ = 3                   # list with next time of interest 
 
 GPS_supervised_smoothing.reshape_kernel(la, lon) 
 
 times = t.append(t_+)  \
 times = GPS_supervised_smoothing.reshape_time(initial_times = times) \
-GPS_supervised_smoothing.GSPpred( times\[:-1\], lon, la, times\[-1\] )  
-
----
+GPS_supervised_smoothing.GSPpred( times[:-1], lon, la, times[-1] )  
+```
 
 Comments:
 - You don't need to reshape_kernel often, once in the beginning would be ok
