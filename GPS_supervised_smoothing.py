@@ -83,7 +83,7 @@ class GSP:
     outp_la = self.gpr_la.predict(new_time) + self.centers[1]
     return [outp_lon[0], outp_la[0]]
 
-  def corrected_course(self, time, scale_time = True):
+  def corrected_course(self, time):
     reshape_const = self.r_const
     time = time - reshape_const[0]
     if reshape_const[2]: time = np.log(time)
