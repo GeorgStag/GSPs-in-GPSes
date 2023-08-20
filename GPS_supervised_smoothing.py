@@ -45,6 +45,7 @@ class GSP:
       ind = ind / ( max(ind) - 5 )
     else:
       reshape_const[1] = 6
+    self.r_const = reshape_const
     print(Fore.GREEN + "Scaling Successful; Reshape constants updated!!!")
     return ind
 
@@ -83,7 +84,10 @@ class GSP:
     return [outp_lon[0], outp_la[0]]
 
   def corrected_course(self, time, scale_time = True):
-    if scale_time : time = self.scale_times(time)
+    reshape_const = self.r_const
+    time = time - reshape_const[0]
+    if reshape_const[2]: time = np.log(time)
+    time = time/(reshape_const[1]-5)
     time = np.array(time).reshape(-1, 1)
     outp_lon = self.gpr_lon.predict(time) + self.centers[0]
     outp_la = self.gpr_la.predict(time) + self.centers[1]
