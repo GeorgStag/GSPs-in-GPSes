@@ -1,5 +1,6 @@
 import numpy as np
 
+## pre/new: [x,y,ux,uy,timestamp]
 
 def Kalman_pred(pre, new):
 	p_minus = np.matrix( [ [pre[0]], [pre[1]], [pre[2]], [pre[3]] ] )
