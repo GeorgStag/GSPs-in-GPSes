@@ -13,16 +13,15 @@ Ideally the functions should work as follows,
 ```python
 import GPS_supervised_smoothing
 
-t =   [0,1,2]             # list with previous times 
-la =  [42.1,42.2,42.3]    # list with previous latitudes 
-lon = [-12.1,-12.2,-12.3] # list with previous longitudes 
-t_new = 3                 # list with next time of interest 
+t =   [10,11,22]                # list with previous times
+la =  [42.1,42.2,42.3]          # list with previous latitudes
+lon = [-12.1,-12.2,-12.3]       # list with previous longitudes
+t_new = t[-1] + 1               # list with next time of interest
 
-GPS_supervised_smoothing.reshape_kernel(la, lon) 
-
-times = t.append(t_new)  
-times = GPS_supervised_smoothing.reshape_time(initial_times = times) 
-GPS_supervised_smoothing.GSPpred( times[:-1], lon, la, times[-1] )  
+model = GPS_supervised_smoothing.GSP()
+model.train(lon=lon, lat=la, time=t)
+model.corrected_course(t)
+model.predict_next(t_new)
 ```
 
 Comments:
