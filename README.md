@@ -1,11 +1,11 @@
 # GSPs-in-GPSes
 GPS output enhancement with the use of Gaussian Stochastic Processes
 
-In kalman_filter.py, there is the classic approach of Kalman Filter. More about the Kalman approach can be found in the uploaded pdf.
+In kalman_filter.py, there is the classic approach of Kalman Filter in the form of python functions.
 
 In GPS_supervised_smoothing.py, there are functions for improving the output of GPS devices, based on Supervised Learning modelling. 
 
-The input should be previous GPS positions (Latitude-Longitude) in corresponding times and the results are predictions of position for future close times. 
+The input should be previous GPS positions (Latitude-Longitude) in corresponding times and the results are predictions of position for future close times. Also, the previous course can be returned corrected as model performance indice.
 
 The Gaussian Stochastic Process modelling is based on Radial Basis function kernel plus White Noise, so the previous positions are filtered to drop likely noise and also predictions can happen for future momments under the assumption of smooth transitioning of GSP.
 
@@ -19,12 +19,11 @@ lon = [-12.1,-12.2,-12.3]       # list with previous longitudes
 t_new = t[-1] + 1               # list with next time of interest
 
 model = GPS_supervised_smoothing.GSP()
-model.train(lon=lon, lat=la, time=t)
+model.update(lon=lon, lat=la, time=t)
 model.corrected_course(t)
 model.predict_next(t_new)
 ```
 
 Comments:
-- You don't need to reshape_kernel often, once in the beginning would be ok
-- You don't need to include all the previous values in GSPpred, 5 at least is recommended, more than 20 would be ideal
-- Each time you use GSPpred, model is updated, so it keeps account of all previous inputs, even if not included in current (times[:-1], lon, la)
+- You don't need to include all the previous values as sample, 5 at least is recommended, more than 20 would be ideal.
+- Each time model is updated, all previous inputs are reseted.
