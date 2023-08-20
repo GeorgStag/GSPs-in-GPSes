@@ -1,7 +1,7 @@
 # GSPs-in-GPSes
 GPS output enhancement with the use of Gaussian Stochastic Processes
 
-In 2D_kalman_filter_update_functions.py, there is the classic approach of Kalman Filter in the form of python functions.
+In 2D_kalman_filter_update_functions.py, there is the classic approach of 2D Kalman Filter in the form of python functions.
 
 In GPS_supervised_smoothing.py, there is GSP class for improving the output of GPS devices, based on Supervised Learning modelling. 
 
@@ -9,7 +9,7 @@ The input should be previous GPS positions (Latitude-Longitude) in corresponding
 
 The Gaussian Stochastic Process modelling is based on Radial Basis function kernel plus White Noise, so the previous positions are filtered to drop likely noise and also predictions can happen for future momments under the assumption of smooth transitioning of GSP.
 
-Ideally the functions should work as follows,
+Implementation works as follows,
 ```python
 import GPS_supervised_smoothing
 
